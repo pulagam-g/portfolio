@@ -1,53 +1,69 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LeadFlow – Lead-capture automation</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../retro.css">
 <style>
-:root{--bg:#0B100E;--card:#141B18;--line:#25302B;--fg:#E8EFEB;--soft:#93A39A;--acc:#FF6D5A;--ok:#5BD69B}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:radial-gradient(1200px 600px at 80% -10%,#1d2a24,transparent),var(--bg);color:var(--fg);font:16px/1.6 Inter,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px}
-nav b{font-size:20px}nav b span{color:var(--acc)}
-nav a{color:var(--soft);text-decoration:none;margin-left:20px}
-.mono{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;min-height:540px}
-h1{font-size:clamp(36px,5vw,58px);line-height:1.08;margin:12px 0 16px}
-.lead{color:var(--soft);font-size:18px;max-width:520px}
-.three{height:480px}
-section{padding:60px 0;border-top:1px solid var(--line)}
-h2{font-size:30px;margin-bottom:20px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;perspective:1200px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;transition:transform .25s}
-form{display:grid;gap:10px}
-input,textarea{font:inherit;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#0B100E;color:var(--fg)}
-button{font:inherit;font-weight:700;background:var(--acc);color:#fff;border:0;padding:12px;border-radius:10px;cursor:pointer}
+:root{--bg:#FFF4E8;--ink:#2B2A1C;--a1:#EF5B2B;--a2:#F6A9C6;--a3:#C2C85A;--paper:#FFFCF6}
+.hero{padding:60px 0 100px;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(54px,8vw,104px)}
+.hero h1 span{color:var(--a1)}
+.hero p{font-size:20px;max-width:500px;margin:20px 0 30px}
+.pipe{position:relative;padding:10px 0 10px 40px}
+.pipe:before{content:"";position:absolute;left:22px;top:20px;bottom:20px;width:4px;background:repeating-linear-gradient(var(--ink) 0 10px,transparent 10px 18px);background-size:4px 18px;animation:dash 1s linear infinite}
+@keyframes dash{to{background-position:0 18px}}
+.dot{position:absolute;left:16px;width:16px;height:16px;border-radius:50%;background:var(--a1);border:3px solid var(--ink);animation:run 4s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes run{0%{top:20px}100%{top:calc(100% - 36px)}}
+.node{display:flex;align-items:center;gap:14px;margin:14px 0;padding:14px 18px;border:3px solid var(--ink);border-radius:18px;background:var(--paper);box-shadow:5px 5px 0 var(--ink);font-weight:700;animation:pop 4s ease-in-out infinite}
+.node:nth-child(2){margin-left:24px;animation-delay:.8s;background:var(--a3)}.node:nth-child(3){animation-delay:1.6s;background:var(--a2)}.node:nth-child(4){margin-left:30px;animation-delay:2.4s}.node:nth-child(5){animation-delay:3.2s;background:var(--a1);color:var(--paper)}
+.node small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.node i{font-style:normal;width:34px;height:34px;border-radius:50%;border:3px solid var(--ink);display:grid;place-items:center;background:var(--paper);color:var(--ink);font-family:Shrikhand,serif}
+@keyframes pop{0%,15%,100%{transform:none}7%{transform:translateX(10px) scale(1.04)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
-th{color:var(--soft);font-weight:500}
-.log{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ok);margin-top:14px;min-height:80px;white-space:pre-line}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;perspective:1000px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .25s}
-.step b{display:block;margin:6px 0 4px}.step p{color:var(--soft);font-size:14px}
-footer{text-align:center;color:var(--soft);font-size:13px;padding:30px}
-@media(max-width:820px){.hero,.two{grid-template-columns:1fr}.three{height:340px}}
+th,td{text-align:left;padding:9px 6px;border-bottom:2px solid var(--ink)}
+.log{font-family:ui-monospace,monospace;font-size:14px;margin-top:14px;min-height:96px;white-space:pre-line;font-weight:700;color:#3b6b2a}
+.steps .card h3{font-family:Fraunces,serif;font-weight:900;font-size:22px;margin:6px 0}
+.steps .num{font-family:Shrikhand,serif;font-size:38px;color:var(--a1)}
+@media(max-width:820px){.hgrid,.two{grid-template-columns:1fr}}
 </style></head><body>
-<nav><div class="wrap"><b>Lead<span>Flow</span></b><div><a href="#demo">Live demo</a><a href="#how">How it works</a></div></div></nav>
-<div class="wrap hero"><div><div class="mono">n8n · Google Sheets · Gmail</div><h1>Never miss a website lead again.</h1>
-<p class="lead">Every enquiry lands in a Google Sheet, the owner gets an instant alert, and the visitor gets a friendly auto-reply in seconds. No copy-pasting, no lost leads.</p></div>
-<div class="three" id="three"></div></div>
-<section id="demo"><div class="wrap"><h2>Try it (simulated run)</h2><div class="two">
-<div class="box tilt"><form id="f"><input id="nm" required placeholder="Name"><input id="em" required type="email" placeholder="Email"><textarea rows="3" placeholder="What do you need?"></textarea><button>Submit enquiry</button></form><div class="log" id="log"></div></div>
-<div class="box tilt"><div class="mono" style="margin-bottom:10px">Google Sheet · Leads</div><table><thead><tr><th>Time</th><th>Name</th><th>Email</th><th>Status</th></tr></thead><tbody id="tb"><tr><td>09:12</td><td>Sample lead</td><td>sample@example.com</td><td>Replied</td></tr></tbody></table></div>
-</div></div></section>
-<section id="how"><div class="wrap"><h2>How the workflow runs</h2><div class="steps">
-<div class="step tilt"><span class="mono">01 Trigger</span><b>Webhook</b><p>The website form posts name, email and message to n8n.</p></div>
-<div class="step tilt"><span class="mono">02 Clean</span><b>Set &amp; validate</b><p>Trims fields, checks the email and adds a timestamp.</p></div>
-<div class="step tilt"><span class="mono">03 Store</span><b>Google Sheets</b><p>Appends the lead as a new row in one clean list.</p></div>
-<div class="step tilt"><span class="mono">04 Notify</span><b>Owner alert</b><p>Emails the lead details to the business owner instantly.</p></div>
-<div class="step tilt"><span class="mono">05 Reply</span><b>Auto-reply</b><p>Thanks the visitor and sets expectations for a reply.</p></div>
-</div></div></section>
-<footer>Concept project · lead-capture automation built with n8n · this page simulates the run, no data is sent</footer>
+<nav class="top"><div class="wrap"><a class="logo" href="#">Lead<span style="color:var(--a1)">Flow</span></a><div class="links"><a href="#demo">Live demo</a><a href="#how">How it works</a></div></div></nav>
+<header class="hero"><div class="wrap hgrid">
+  <div><div class="eyebrow">n8n · Google Sheets · Gmail</div>
+  <h1 class="display" style="margin-top:12px">Never miss a <span>lead</span> again.</h1>
+  <p>Every website enquiry lands in a Google Sheet, the owner gets an instant alert and the visitor gets a friendly auto-reply in seconds.</p>
+  <a class="btn" href="#demo">Try the demo</a> &nbsp; <a class="btn alt" href="#how">How it works</a></div>
+  <div style="position:relative">
+    <div class="pipe"><span class="dot"></span>
+      <div class="node"><i>1</i><div><small>Trigger</small>Website form</div></div>
+      <div class="node"><i>2</i><div><small>Clean</small>Set &amp; validate</div></div>
+      <div class="node"><i>3</i><div><small>Store</small>Google Sheets</div></div>
+      <div class="node"><i>4</i><div><small>Notify</small>Email to owner</div></div>
+      <div class="node"><i>5</i><div><small>Reply</small>Auto-reply sent</div></div>
+    </div>
+    <div class="sticker" data-sticker="burst" data-color="var(--a3)" style="--s:90px;top:-30px;right:0" data-depth="22"></div>
+    <div class="sticker nospin" data-sticker="heart" data-color="var(--a2)" style="--s:60px;bottom:0;right:10%;--d:-2s" data-depth="-18"></div>
+  </div>
+</div></header>
+<div class="marquee" style="background:var(--a1);color:var(--paper)" data-marquee="No missed leads|Instant alerts|Auto-replies|One clean sheet|Built with n8n"></div>
+<section id="demo"><div class="wrap">
+  <div class="eyebrow">Live demo (simulated)</div><h2 class="display" style="font-size:clamp(44px,6vw,72px)">Send a test lead</h2>
+  <div class="two" style="margin-top:30px">
+    <div class="card tilt reveal" data-tilt="5"><form id="f"><input id="nm" required placeholder="Name"><input id="em" required type="email" placeholder="Email"><textarea rows="3" placeholder="What do you need?"></textarea><button class="btn">Submit enquiry</button></form><div class="log" id="log"></div></div>
+    <div class="card tilt reveal" data-tilt="5" style="background:var(--a3)"><div class="eyebrow" style="margin-bottom:10px">Google Sheet · Leads</div><table><thead><tr><th>Time</th><th>Name</th><th>Email</th><th>Status</th></tr></thead><tbody id="tb"><tr><td>09:12</td><td>Sample lead</td><td>sample@example.com</td><td>Replied</td></tr></tbody></table></div>
+  </div>
+</div></section>
+<section id="how" class="checker" style="border-block:3px solid var(--ink)"><div class="wrap">
+  <div class="card reveal" style="display:inline-block;margin-bottom:30px"><div class="eyebrow">How it works</div><h2 class="display" style="font-size:clamp(40px,6vw,64px)">Five steps, zero copy-paste</h2></div>
+  <div class="grid g3 steps">
+    <div class="card tilt reveal"><div class="num">01</div><h3>Webhook</h3><p>The form posts name, email and message to n8n.</p></div>
+    <div class="card tilt reveal"><div class="num">02</div><h3>Validate</h3><p>Trims fields, checks the email, adds a timestamp.</p></div>
+    <div class="card tilt reveal"><div class="num">03</div><h3>Store</h3><p>Appends the lead as a new Google Sheets row.</p></div>
+    <div class="card tilt reveal"><div class="num">04</div><h3>Alert</h3><p>Emails the lead details to the owner instantly.</p></div>
+    <div class="card tilt reveal"><div class="num">05</div><h3>Reply</h3><p>Thanks the visitor and sets expectations.</p></div>
+  </div>
+</div></section>
+<footer class="foot">Concept project · lead-capture automation built with n8n · this page simulates the run, no data is sent</footer>
 <script>
 function pad(n){return (n<10?"0":"")+n}
 var NL=String.fromCharCode(10);
@@ -56,11 +72,7 @@ var nm=document.getElementById("nm").value,em=document.getElementById("em").valu
 var steps=["Webhook received","Fields validated","Row added to Google Sheets","Alert emailed to owner","Auto-reply sent to "+em];
 steps.forEach(function(s,i){setTimeout(function(){log.textContent+="✓ "+s+NL;
 if(i===2){var d=new Date(),tr=document.createElement("tr");tr.innerHTML="<td>"+pad(d.getHours())+":"+pad(d.getMinutes())+"</td><td></td><td></td><td>New</td>";tr.children[1].textContent=nm;tr.children[2].textContent=em;document.getElementById("tb").prepend(tr);window.lastRow=tr}
-if(i===4&&window.lastRow){window.lastRow.children[3].textContent="Replied"}},500*(i+1))});this.reset()};
-document.querySelectorAll(".tilt").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="rotateY("+(x*10)+"deg) rotateX("+(-y*10)+"deg)"});c.addEventListener("mouseleave",function(){c.style.transform=""})});
+if(i===4&&window.lastRow){window.lastRow.children[3].textContent="Replied ✓"}},550*(i+1))});this.reset()};
 </script>
-<script type="module">
-import {scene} from "../scene.js";
-scene("flow",document.getElementById("three"),{c1:"#FF6D5A",c2:"#5BD69B"});
-</script>
+<script src="../retro.js"></script>
 </body></html>
