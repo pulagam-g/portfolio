@@ -1,25 +1,26 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Grão Café, Lisbon – Concept project</title>
+<title>Grão Café – Specialty coffee, Lisbon</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
 <style>
 :root{--cream:#FBF4EA;--brown:#4A2C1D;--terra:#C8643B;--sage:#8A9A6B;--line:#E8D9C4}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--brown);font:16px/1.6 Inter,sans-serif}
-.demo{background:#C9F26B;color:#111;font-size:13px;text-align:center;padding:8px}.demo a{color:#111;font-weight:600}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:20px 24px}
-nav b{font-family:"DM Serif Display",serif;font-size:26px;font-weight:400}
+nav b{font-family:"DM Serif Display",serif;font-size:28px;font-weight:400}
 nav a{margin-left:22px;color:var(--brown);text-decoration:none;font-weight:500}
-.hero{max-width:1100px;margin:0 auto;padding:40px 24px 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(44px,7vw,78px);line-height:1}
+.hero{max-width:1100px;margin:0 auto;padding:20px 24px 50px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.hero h1{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(46px,7vw,82px);line-height:1}
 .hero h1 span{color:var(--terra)}
 .hero p{font-size:19px;margin:20px 0 28px;max-width:460px}
-.btn{display:inline-block;background:var(--terra);color:#fff;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600}
-.hero .ph{aspect-ratio:4/5;border-radius:200px 200px 24px 24px;background:url(https://picsum.photos/seed/graocafe/700/880) center/cover}
+.btn{display:inline-block;background:var(--terra);color:#fff;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600;box-shadow:0 8px 0 #9c4826;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:translateY(6px);box-shadow:0 2px 0 #9c4826}
+.three{height:480px;background:radial-gradient(circle at 50% 60%,#F3E3CC,transparent 65%)}
 section{max-width:1100px;margin:0 auto;padding:60px 24px;border-top:1px solid var(--line)}
-h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:42px;margin-bottom:26px}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:44px;margin-bottom:26px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;perspective:1200px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 14px 30px rgba(74,44,29,.08);transition:transform .3s}
 .menu h3{color:var(--terra);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
 .item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
 .item small{display:block;color:#8a6f5e}
@@ -31,17 +32,16 @@ input,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);borde
 button{font:inherit;font-weight:600;background:var(--brown);color:#fff;border:0;padding:13px;border-radius:999px;cursor:pointer}
 #ok{display:none;color:var(--sage);font-weight:600}
 footer{text-align:center;padding:30px;font-size:13px;color:#8a6f5e}
-@media(max-width:760px){.hero,.info{grid-template-columns:1fr}nav div{display:none}}
+@media(max-width:760px){.hero,.info{grid-template-columns:1fr}nav div{display:none}.three{height:340px}}
 </style></head><body>
-<div class="demo">Concept project · designed &amp; built by Geethanjali Pulagam · <a href="../../">Back to portfolio</a></div>
 <nav><b>Grão</b><div><a href="#menu">Menu</a><a href="#visit">Visit</a><a href="#contact">Contact</a></div></nav>
-<div class="hero"><div><h1>Slow coffee,<br><span>warm pastries.</span></h1><p>A small neighbourhood café in Lisbon serving specialty coffee, fresh pastéis de nata and seasonal brunch.</p><a class="btn" href="#menu">See the menu</a></div><div class="ph" role="img" aria-label="Café interior"></div></div>
+<div class="hero"><div><h1>Slow coffee,<br><span>warm pastries.</span></h1><p>A small neighbourhood café in Lisbon serving specialty coffee, fresh pastéis de nata and seasonal brunch.</p><a class="btn" href="#menu">See the menu</a></div><div class="three" id="three"></div></div>
 <section id="menu"><h2>Menu</h2><div class="menu">
-<div><h3>Coffee</h3>
+<div class="card tilt"><h3>Coffee</h3>
 <div class="item"><span>Espresso (bica)<small>Single-origin, roasted locally</small></span><b>€1.20</b></div>
 <div class="item"><span>Flat white<small>Double shot, silky milk</small></span><b>€3.20</b></div>
 <div class="item"><span>Iced oat latte<small>Oat milk, cold brew base</small></span><b>€3.80</b></div></div>
-<div><h3>Bakery &amp; brunch</h3>
+<div class="card tilt"><h3>Bakery &amp; brunch</h3>
 <div class="item"><span>Pastel de nata<small>Baked every morning</small></span><b>€1.40</b></div>
 <div class="item"><span>Sourdough toast<small>Avocado, chilli, lime</small></span><b>€7.50</b></div>
 <div class="item"><span>Granola bowl<small>Yogurt, fruit, honey</small></span><b>€6.00</b></div></div>
@@ -52,8 +52,13 @@ footer{text-align:center;padding:30px;font-size:13px;color:#8a6f5e}
 <iframe title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-9.1500,38.7080,-9.1350,38.7180&amp;layer=mapnik"></iframe></div></section>
 <section id="contact"><h2>Say hello</h2>
 <form id="f"><input required placeholder="Your name"><input required type="email" placeholder="Email"><textarea rows="4" placeholder="Message, event or group booking"></textarea><button>Send message</button><p id="ok">Thanks! We'll reply within a day.</p></form></section>
-<footer>Concept site, not a real business · Photo from picsum.photos</footer>
+<footer>Concept website for a café brand · sample menu and address</footer>
 <script>
 document.getElementById("f").onsubmit=function(e){e.preventDefault();document.getElementById("ok").style.display="block";this.reset()};
+document.querySelectorAll(".tilt").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="rotateY("+(x*8)+"deg) rotateX("+(-y*8)+"deg)"});c.addEventListener("mouseleave",function(){c.style.transform=""})});
+</script>
+<script type="module">
+import {scene} from "../scene.js";
+scene("cafe",document.getElementById("three"),{c1:"#F7EFE4",c2:"#5A3220"});
 </script>
 </body></html>
