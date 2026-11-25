@@ -1,72 +1,75 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Brieflet – AI portfolio copywriter</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="../retro.css">
 <style>
-:root{--bg:#0A0B14;--card:#131528;--line:#262A45;--fg:#ECEDF7;--soft:#9A9DC0;--acc:#8B7CFF;--acc2:#3FE0D0}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:radial-gradient(900px 500px at 75% 0%,#1d1a3d,transparent),var(--bg);color:var(--fg);font:16px/1.6 "Space Grotesk",sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px}
-nav b{font-size:21px}nav b span{color:var(--acc2)}
-nav a{color:var(--soft);text-decoration:none;margin-left:20px}
-.mono{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc2)}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;min-height:540px}
-h1{font-size:clamp(36px,5vw,60px);line-height:1.05;margin:12px 0 16px}
-h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--soft);font-size:18px;max-width:520px}
-.three{height:480px}
-section{padding:60px 0;border-top:1px solid var(--line)}
-h2{font-size:30px;margin-bottom:20px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;perspective:1200px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;transition:transform .25s}
-label{display:block;font-size:13px;color:var(--soft);margin:10px 0 4px}
-input,select,textarea{width:100%;font:inherit;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#0A0B14;color:var(--fg)}
-button{margin-top:14px;width:100%;font:inherit;font-weight:700;background:linear-gradient(90deg,var(--acc),#6a5cff);color:#fff;border:0;padding:13px;border-radius:10px;cursor:pointer}
-.out h3{font-size:14px;color:var(--acc2);margin:14px 0 4px;font-weight:500}
-.out p{color:#d6d8ef}
-.out .ph{color:var(--soft)}
-.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;perspective:1000px}
-.pipe div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .25s}
-.pipe b{display:block;margin:6px 0 4px}.pipe p{color:var(--soft);font-size:14px}
-footer{text-align:center;color:var(--soft);font-size:13px;padding:30px}
-@media(max-width:820px){.hero,.two{grid-template-columns:1fr}.three{height:340px}}
+:root{--bg:#F7E6A6;--ink:#3A1F14;--a1:#F05A28;--a2:#F3A3BE;--a3:#FFF3C9;--paper:#FFFBEE}
+.hero{background:var(--ink);color:var(--bg);padding:60px 0 110px;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero .hand{font-size:clamp(44px,6vw,70px);color:var(--bg);display:block;line-height:1;transform:rotate(-4deg)}
+.hero h1{font-size:clamp(60px,9vw,120px);color:var(--a1);margin-top:-6px}
+.hero p{max-width:500px;margin:22px 0 30px;color:#f4e3c1;font-size:19px}
+.hero .btn{background:var(--a1)}
+.notes{position:relative;height:400px}
+.note{position:absolute;width:230px;padding:22px;border:3px solid var(--ink);background:var(--a3);color:var(--ink);box-shadow:8px 8px 0 rgba(0,0,0,.35);font-family:Caveat,cursive;font-size:26px;line-height:1.15;transform:rotate(var(--rot,-4deg))}
+.note b{display:block;font-family:"DM Sans",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+label{display:block;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:6px 0 4px}
+.out{background:var(--paper);min-height:320px}
+.out h3{font-family:Shrikhand,serif;font-weight:400;color:var(--a1);font-size:24px;margin:14px 0 4px}
+.out p.typing:after{content:"|";animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.steps .card h3{font-family:Fraunces,serif;font-weight:900;font-size:22px;margin:6px 0}
+.steps .num{font-family:Shrikhand,serif;font-size:38px;color:var(--a1)}
+@media(max-width:820px){.hgrid,.two{grid-template-columns:1fr}.notes{height:330px}.note{width:190px;font-size:22px}}
 </style></head><body>
-<nav><div class="wrap"><b>Brief<span>let</span></b><div><a href="#try">Try it</a><a href="#how">How it works</a></div></div></nav>
-<div class="wrap hero"><div><div class="mono">n8n · LLM · prompt chains</div><h1>From a short brief to <em>portfolio-ready copy.</em></h1>
-<p class="lead">Fill in a few lines about a client. The workflow drafts a bio, an About section and project descriptions in their tone of voice, ready to edit and publish.</p></div>
-<div class="three" id="three"></div></div>
-<section id="try"><div class="wrap"><h2>Try it (sample output)</h2><div class="two">
-<div class="box tilt"><form id="f">
-<label>Client name</label><input id="cn" value="Sofia" required>
-<label>What they do</label><input id="role" value="ceramic artist" required>
-<label>City</label><input id="city" value="Porto" required>
-<label>Tone of voice</label><select id="tone"><option>warm</option><option>bold</option><option>minimal</option></select>
-<label>Key projects (comma separated)</label><input id="proj" value="tableware collection, café mural, studio workshops">
-<button>Generate draft</button></form></div>
-<div class="box tilt out" id="out"><div class="mono">Draft output</div><p class="ph" style="margin-top:10px">Your draft bio, About section and project descriptions will appear here.</p></div>
-</div><p style="color:var(--soft);font-size:14px;margin-top:14px">This page fills a template in the browser to show the output format. In the real workflow, n8n sends the brief to an LLM with a tuned prompt chain.</p></div></section>
-<section id="how"><div class="wrap"><h2>How the workflow runs</h2><div class="pipe">
-<div class="tilt"><span class="mono">01</span><b>Brief form</b><p>Client fills a short form; n8n receives it via webhook.</p></div>
-<div class="tilt"><span class="mono">02</span><b>Prompt chain</b><p>Structured prompts set tone, length and audience.</p></div>
-<div class="tilt"><span class="mono">03</span><b>LLM drafts</b><p>Bio, About section and project blurbs are generated.</p></div>
-<div class="tilt"><span class="mono">04</span><b>Quality checks</b><p>Length, tone and banned-word checks before delivery.</p></div>
-<div class="tilt"><span class="mono">05</span><b>Deliver</b><p>Drafts land in a Google Doc for review and edits.</p></div>
-</div></div></section>
-<footer>Concept project · AI copywriting workflow built with n8n and an LLM</footer>
+<nav class="top"><div class="wrap"><a class="logo" href="#">Brief<span style="color:var(--a1)">let</span></a><div class="links"><a href="#try">Try it</a><a href="#how">How it works</a></div></div></nav>
+<header class="hero"><div class="wrap hgrid">
+  <div><span class="hand">creative</span><h1 class="display">copywriter</h1>
+  <p>Fill in a few lines about a client. The AI workflow drafts a bio, an About section and project descriptions in their tone of voice, ready to edit and publish.</p>
+  <a class="btn" href="#try">Write my copy</a></div>
+  <div class="notes">
+    <div class="note tilt" style="--rot:-7deg;left:0;top:10px" data-depth="16"><b>Brief</b>Sofia, ceramic artist, Porto. Warm tone.</div>
+    <div class="note tilt" style="--rot:5deg;right:0;top:120px;background:var(--a2)" data-depth="-14"><b>Bio</b>Sofia brings care and craft to every piece…</div>
+    <div class="note tilt" style="--rot:-2deg;left:14%;bottom:0;background:var(--paper)" data-depth="22"><b>Projects</b>Tableware collection, café mural…</div>
+    <div class="sticker" data-sticker="star" data-color="var(--a1)" style="--s:70px;right:10%;top:-10px"></div>
+  </div>
+</div></header>
+<div class="marquee alt" data-marquee="Bios|About pages|Project blurbs|Tone of voice|n8n + LLM"></div>
+<section id="try"><div class="wrap">
+  <div class="eyebrow">Try it (sample output)</div><h2 class="display" style="font-size:clamp(44px,6vw,72px)">From brief to copy</h2>
+  <div class="two" style="margin-top:30px">
+    <div class="card reveal"><form id="f">
+      <label>Client name</label><input id="cn" value="Sofia" required>
+      <label>What they do</label><input id="role" value="ceramic artist" required>
+      <label>City</label><input id="city" value="Porto" required>
+      <label>Tone of voice</label><select id="tone"><option>warm</option><option>bold</option><option>minimal</option></select>
+      <label>Key projects (comma separated)</label><input id="proj" value="tableware collection, café mural, studio workshops">
+      <button class="btn" style="margin-top:8px">Generate draft</button></form></div>
+    <div class="card out tilt reveal" data-tilt="5" id="out"><div class="eyebrow">Draft output</div><p style="margin-top:12px;opacity:.7">Your draft bio, About section and project descriptions will appear here.</p></div>
+  </div>
+  <p style="font-size:14px;margin-top:16px">This page fills a template in the browser to show the output format. In the real workflow, n8n sends the brief to an LLM through a tuned prompt chain.</p>
+</div><div class="sticker" data-sticker="flower" data-color="var(--a2)" data-color2="var(--a1)" style="--s:90px;top:40px;right:5%" data-depth="20"></div></section>
+<section id="how" class="dots" style="border-block:3px solid var(--ink);background-color:var(--a3)"><div class="wrap">
+  <div class="eyebrow">How the workflow runs</div><h2 class="display" style="font-size:clamp(40px,6vw,64px)">Five smart steps</h2>
+  <div class="grid g3 steps" style="margin-top:30px">
+    <div class="card tilt reveal"><div class="num">01</div><h3>Brief form</h3><p>The client fills a short form; n8n receives it.</p></div>
+    <div class="card tilt reveal"><div class="num">02</div><h3>Prompt chain</h3><p>Prompts set tone, length and audience.</p></div>
+    <div class="card tilt reveal"><div class="num">03</div><h3>LLM drafts</h3><p>Bio, About and project blurbs are written.</p></div>
+    <div class="card tilt reveal"><div class="num">04</div><h3>Checks</h3><p>Length, tone and banned-word checks.</p></div>
+    <div class="card tilt reveal"><div class="num">05</div><h3>Deliver</h3><p>Drafts land in a Google Doc for review.</p></div>
+  </div>
+</div></section>
+<footer class="foot">Concept project · AI copywriting workflow built with n8n and an LLM</footer>
 <script>
 var T={warm:["brings care and craft to every piece","Every project starts with a conversation","made with love"],bold:["creates work that stops people in their tracks","Big ideas, sharp execution","built to stand out"],minimal:["makes calm, considered work","Less, but better","quietly crafted"]};
-function el(tag,txt){var e=document.createElement(tag);e.textContent=txt;return e}
+function typeInto(el,txt,done){var i=0;el.classList.add("typing");(function step(){el.textContent=txt.slice(0,i);i+=2;if(i<=txt.length+1){setTimeout(step,14)}else{el.textContent=txt;el.classList.remove("typing");if(done)done()}})()}
 document.getElementById("f").onsubmit=function(e){e.preventDefault();
 var n=document.getElementById("cn").value,r=document.getElementById("role").value,c=document.getElementById("city").value,t=T[document.getElementById("tone").value],ps=document.getElementById("proj").value.split(",").map(function(s){return s.trim()}).filter(Boolean);
-var o=document.getElementById("out");o.innerHTML="";o.appendChild(el("div","Draft output"));o.firstChild.className="mono";
-o.appendChild(el("h3","Short bio"));o.appendChild(el("p",n+" is a "+r+" based in "+c+" who "+t[0]+"."));
-o.appendChild(el("h3","About"));o.appendChild(el("p",t[1]+". "+n+" works with people and brands who want something personal, from first idea to finished piece. Based in "+c+", available for commissions and collaborations."));
-o.appendChild(el("h3","Projects"));ps.forEach(function(p){o.appendChild(el("p","• "+p.charAt(0).toUpperCase()+p.slice(1)+": "+t[2]+", with attention to every detail."))})};
-document.querySelectorAll(".tilt").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="rotateY("+(x*10)+"deg) rotateX("+(-y*10)+"deg)"});c.addEventListener("mouseleave",function(){c.style.transform=""})});
+var o=document.getElementById("out");o.innerHTML='<div class="eyebrow">Draft output</div>';
+var parts=[["Short bio",n+" is a "+r+" based in "+c+" who "+t[0]+"."],["About",t[1]+". "+n+" works with people and brands who want something personal, from first idea to finished piece. Based in "+c+", open for commissions and collaborations."]];
+ps.forEach(function(p,i){parts.push([i===0?"Projects":"",p.charAt(0).toUpperCase()+p.slice(1)+": "+t[2]+", with attention to every detail."])});
+var k=0;(function next(){if(k>=parts.length)return;var pr=parts[k++];if(pr[0]){var h=document.createElement("h3");h.textContent=pr[0];o.appendChild(h)}var p=document.createElement("p");o.appendChild(p);typeInto(p,pr[1],next)})()};
 </script>
-<script type="module">
-import {scene} from "../scene.js";
-scene("ai",document.getElementById("three"),{c1:"#8B7CFF",c2:"#3FE0D0"});
-</script>
+<script src="../retro.js"></script>
 </body></html>
