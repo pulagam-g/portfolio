@@ -86,7 +86,7 @@ export function scene(kind, el, opts) {
     tick = function (t) {
       g.rotation.y = Math.sin(t * 0.3) * 0.5;
       g.children.forEach(function (c) { if (c.geometry && c.geometry.type === "BoxGeometry") { c.rotation.x = t * 0.6 + c.userData.r; c.rotation.y = t * 0.8; } });
-      pulses.forEach(function (pu) { pu.position.copy(path.getPoint((t * 0.15 + pu.userData.o) % 1)); });
+      pulses.forEach(function (pu) { pu.position.copy(path.getPoint(Math.abs((t * 0.15 + pu.userData.o) % 1))); });
     };
   }
 
@@ -112,7 +112,7 @@ export function scene(kind, el, opts) {
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var t0 = performance.now();
   function loop(now) {
-    var t = still ? 2 : (now - t0) / 1000;
+    var t = still ? 2 : Math.max(0, (now - t0) / 1000);
     tick(t);
     s.rotation.x += (my * 0.25 - s.rotation.x) * 0.05;
     s.rotation.z += (-mx * 0.1 - s.rotation.z) * 0.05;
