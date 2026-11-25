@@ -1,72 +1,66 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lead-capture automation (n8n) – Concept project</title>
+<title>LeadFlow – Lead-capture automation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#0F1412;--card:#171E1B;--line:#26312C;--fg:#E8EFEB;--soft:#93A39A;--acc:#FF6D5A;--ok:#5BD69B}
+:root{--bg:#0B100E;--card:#141B18;--line:#25302B;--fg:#E8EFEB;--soft:#93A39A;--acc:#FF6D5A;--ok:#5BD69B}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);font:16px/1.6 Inter,sans-serif}
-.demo{background:#C9F26B;color:#111;font-size:13px;text-align:center;padding:8px}.demo a{color:#111;font-weight:600}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+body{background:radial-gradient(1200px 600px at 80% -10%,#1d2a24,transparent),var(--bg);color:var(--fg);font:16px/1.6 Inter,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px}
+nav b{font-size:20px}nav b span{color:var(--acc)}
+nav a{color:var(--soft);text-decoration:none;margin-left:20px}
 .mono{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
-header{padding:70px 0 40px}
-h1{font-size:clamp(34px,5vw,54px);line-height:1.1;margin:12px 0 16px}
-.lead{color:var(--soft);font-size:18px;max-width:680px}
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:40px 0}
-.node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:150px;transition:.3s}
-.node small{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--soft)}
-.node b{font-size:15px}
-.node.on{border-color:var(--ok);box-shadow:0 0 0 3px rgba(91,214,155,.2)}
-.ar{width:30px;height:2px;background:var(--line);position:relative}
-.ar:after{content:"";position:absolute;right:0;top:-4px;border-left:7px solid var(--line);border-top:5px solid transparent;border-bottom:5px solid transparent}
-section{padding:50px 0;border-top:1px solid var(--line)}
-h2{font-size:28px;margin-bottom:18px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;min-height:540px}
+h1{font-size:clamp(36px,5vw,58px);line-height:1.08;margin:12px 0 16px}
+.lead{color:var(--soft);font-size:18px;max-width:520px}
+.three{height:480px}
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-size:30px;margin-bottom:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;perspective:1200px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;transition:transform .25s}
 form{display:grid;gap:10px}
-input,textarea{font:inherit;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#0F1412;color:var(--fg)}
+input,textarea{font:inherit;padding:11px 13px;border-radius:10px;border:1px solid var(--line);background:#0B100E;color:var(--fg)}
 button{font:inherit;font-weight:700;background:var(--acc);color:#fff;border:0;padding:12px;border-radius:10px;cursor:pointer}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
 th{color:var(--soft);font-weight:500}
-.log{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ok);margin-top:14px;min-height:60px;white-space:pre-line}
-ol{padding-left:20px}ol li{margin:8px 0;color:#cfd8d3}
+.log{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ok);margin-top:14px;min-height:80px;white-space:pre-line}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;perspective:1000px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .25s}
+.step b{display:block;margin:6px 0 4px}.step p{color:var(--soft);font-size:14px}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:30px}
-@media(max-width:760px){.two{grid-template-columns:1fr}.ar{width:16px}}
+@media(max-width:820px){.hero,.two{grid-template-columns:1fr}.three{height:340px}}
 </style></head><body>
-<div class="demo">Concept project · designed &amp; built by Geethanjali Pulagam · <a href="../../">Back to portfolio</a></div>
-<div class="wrap">
-<header><div class="mono">n8n automation · concept project</div><h1>Lead-capture automation</h1>
-<p class="lead">Every website enquiry lands in a Google Sheet, the business owner gets an instant alert, and the visitor gets a friendly auto-reply. No copy-pasting, no missed leads.</p>
-<div class="flow">
-<div class="node" id="n1"><small>Trigger</small><b>Webhook (form)</b></div><div class="ar"></div>
-<div class="node" id="n2"><small>Clean</small><b>Set &amp; validate</b></div><div class="ar"></div>
-<div class="node" id="n3"><small>Store</small><b>Google Sheets</b></div><div class="ar"></div>
-<div class="node" id="n4"><small>Notify</small><b>Email to owner</b></div><div class="ar"></div>
-<div class="node" id="n5"><small>Reply</small><b>Auto-reply</b></div>
-</div></header>
-<section><h2>Try it (simulated)</h2><div class="two">
-<div class="box"><form id="f"><input id="nm" required placeholder="Name"><input id="em" required type="email" placeholder="Email"><textarea id="ms" rows="3" placeholder="What do you need?"></textarea><button>Submit enquiry</button></form><div class="log" id="log"></div></div>
-<div class="box"><div class="mono" style="margin-bottom:10px">Google Sheet: Leads</div><table><thead><tr><th>Time</th><th>Name</th><th>Email</th><th>Status</th></tr></thead><tbody id="tb"><tr><td>09:12</td><td>Sample lead</td><td>sample@example.com</td><td>Replied</td></tr></tbody></table></div>
-</div></section>
-<section><h2>How it works</h2><ol>
-<li><b>Webhook:</b> the website form posts name, email and message to an n8n webhook.</li>
-<li><b>Set &amp; validate:</b> trims fields, checks the email format and adds a timestamp and source.</li>
-<li><b>Google Sheets:</b> appends the lead as a new row, so the owner has one clean list.</li>
-<li><b>Email to owner:</b> sends an instant alert with the lead details.</li>
-<li><b>Auto-reply:</b> thanks the visitor and tells them when to expect an answer.</li>
-</ol><p style="color:var(--soft);margin-top:14px">Built with n8n, Google Sheets and Gmail nodes. This page simulates the run in the browser; no data is sent anywhere.</p></section>
-</div>
-<footer>Concept project · Geethanjali Pulagam</footer>
+<nav><div class="wrap"><b>Lead<span>Flow</span></b><div><a href="#demo">Live demo</a><a href="#how">How it works</a></div></div></nav>
+<div class="wrap hero"><div><div class="mono">n8n · Google Sheets · Gmail</div><h1>Never miss a website lead again.</h1>
+<p class="lead">Every enquiry lands in a Google Sheet, the owner gets an instant alert, and the visitor gets a friendly auto-reply in seconds. No copy-pasting, no lost leads.</p></div>
+<div class="three" id="three"></div></div>
+<section id="demo"><div class="wrap"><h2>Try it (simulated run)</h2><div class="two">
+<div class="box tilt"><form id="f"><input id="nm" required placeholder="Name"><input id="em" required type="email" placeholder="Email"><textarea rows="3" placeholder="What do you need?"></textarea><button>Submit enquiry</button></form><div class="log" id="log"></div></div>
+<div class="box tilt"><div class="mono" style="margin-bottom:10px">Google Sheet · Leads</div><table><thead><tr><th>Time</th><th>Name</th><th>Email</th><th>Status</th></tr></thead><tbody id="tb"><tr><td>09:12</td><td>Sample lead</td><td>sample@example.com</td><td>Replied</td></tr></tbody></table></div>
+</div></div></section>
+<section id="how"><div class="wrap"><h2>How the workflow runs</h2><div class="steps">
+<div class="step tilt"><span class="mono">01 Trigger</span><b>Webhook</b><p>The website form posts name, email and message to n8n.</p></div>
+<div class="step tilt"><span class="mono">02 Clean</span><b>Set &amp; validate</b><p>Trims fields, checks the email and adds a timestamp.</p></div>
+<div class="step tilt"><span class="mono">03 Store</span><b>Google Sheets</b><p>Appends the lead as a new row in one clean list.</p></div>
+<div class="step tilt"><span class="mono">04 Notify</span><b>Owner alert</b><p>Emails the lead details to the business owner instantly.</p></div>
+<div class="step tilt"><span class="mono">05 Reply</span><b>Auto-reply</b><p>Thanks the visitor and sets expectations for a reply.</p></div>
+</div></div></section>
+<footer>Concept project · lead-capture automation built with n8n · this page simulates the run, no data is sent</footer>
 <script>
 function pad(n){return (n<10?"0":"")+n}
 var NL=String.fromCharCode(10);
 document.getElementById("f").onsubmit=function(e){e.preventDefault();
 var nm=document.getElementById("nm").value,em=document.getElementById("em").value,log=document.getElementById("log");log.textContent="";
 var steps=["Webhook received","Fields validated","Row added to Google Sheets","Alert emailed to owner","Auto-reply sent to "+em];
-document.querySelectorAll(".node").forEach(function(n){n.classList.remove("on")});
-steps.forEach(function(s,i){setTimeout(function(){document.getElementById("n"+(i+1)).classList.add("on");log.textContent+="✓ "+s+NL;
+steps.forEach(function(s,i){setTimeout(function(){log.textContent+="✓ "+s+NL;
 if(i===2){var d=new Date(),tr=document.createElement("tr");tr.innerHTML="<td>"+pad(d.getHours())+":"+pad(d.getMinutes())+"</td><td></td><td></td><td>New</td>";tr.children[1].textContent=nm;tr.children[2].textContent=em;document.getElementById("tb").prepend(tr);window.lastRow=tr}
 if(i===4&&window.lastRow){window.lastRow.children[3].textContent="Replied"}},500*(i+1))});this.reset()};
+document.querySelectorAll(".tilt").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="rotateY("+(x*10)+"deg) rotateX("+(-y*10)+"deg)"});c.addEventListener("mouseleave",function(){c.style.transform=""})});
+</script>
+<script type="module">
+import {scene} from "../scene.js";
+scene("flow",document.getElementById("three"),{c1:"#FF6D5A",c2:"#5BD69B"});
 </script>
 </body></html>
