@@ -1,63 +1,79 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Inês Duarte – Photography, Lisbon</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap">
+<link rel="stylesheet" href="../retro.css">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#0B0B0B;color:#EDE8E1;font:15px/1.6 Inter,sans-serif}
-nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:22px 28px;font-size:13px;letter-spacing:.14em;z-index:3}
-nav a{color:#EDE8E1;text-decoration:none;margin-left:22px}
-.hero{position:relative;height:100vh;min-height:560px;overflow:hidden}
-.three{position:absolute;inset:0}
-.hero .txt{position:absolute;left:0;right:0;bottom:9vh;text-align:center;z-index:2;pointer-events:none}
-h1{font-family:"Cormorant Garamond",serif;font-size:clamp(48px,9vw,110px);font-weight:600;line-height:.95;text-shadow:0 6px 40px rgba(0,0,0,.6)}
-.hero p{color:#cfc8be;margin-top:12px;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
-.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:60px 20px 34px}
-.filters button{background:none;border:1px solid #333;color:#EDE8E1;padding:8px 20px;border-radius:999px;cursor:pointer;font:inherit}
-.filters button.on{background:#EDE8E1;color:#0B0B0B}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding:0 24px 70px;max-width:1200px;margin:0 auto;perspective:1200px}
-.grid figure{cursor:zoom-in;border-radius:10px;overflow:hidden;position:relative;transition:transform .35s ease,box-shadow .35s;transform-style:preserve-3d;aspect-ratio:4/5;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.grid img{width:100%;height:100%;object-fit:cover;display:block}
-.grid figcaption{position:absolute;left:14px;bottom:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;transform:translateZ(40px)}
-.hide{display:none}
-.lb{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:9}
-.lb.open{display:flex}.lb img{max-width:92vw;max-height:88vh;border-radius:4px}
-.lb button{position:absolute;top:16px;right:24px;background:none;border:0;color:#fff;font-size:38px;cursor:pointer}
-.about{max-width:760px;margin:0 auto;padding:70px 24px;text-align:center;border-top:1px solid #222}
-.about h2{font-family:"Cormorant Garamond",serif;font-size:44px;margin-bottom:12px}
-.about p{color:#b9b3aa}
-.cta{display:inline-block;margin-top:24px;padding:12px 28px;border:1px solid #EDE8E1;border-radius:999px;color:#EDE8E1;text-decoration:none}
-footer{text-align:center;color:#8a847b;padding:30px 20px;border-top:1px solid #222;font-size:12px}
+:root{--bg:#EFE2CC;--ink:#3A2216;--a1:#7A1F2B;--a2:#C9A27E;--a3:#F2D98A;--paper:#FFF9EE}
+.hero{background:var(--ink);color:var(--bg);padding:70px 0 110px;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(60px,9vw,120px);color:var(--a3)}
+.hero .hand{font-size:42px;color:var(--a2);display:block;margin-top:6px}
+.hero p{max-width:460px;margin:20px 0 28px;color:#e9dcc6}
+.collage{position:relative;height:440px}
+.collage .polaroid{position:absolute;width:220px}
+.filters{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:26px 0 50px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:44px 28px}
+.gal .polaroid{cursor:zoom-in}
+.gal .polaroid:nth-child(3n){--rot:2.5deg}.gal .polaroid:nth-child(4n){--rot:-1deg}.gal .polaroid:nth-child(5n){--rot:4deg}
+.hide{display:none!important}
+.why .card{background:var(--paper)}
+.why .card h3{font-family:Fraunces,serif;font-weight:900;font-size:24px;margin:8px 0}
+.book{background:var(--a1);color:var(--bg);text-align:center;border-top:3px solid var(--ink)}
+.book h2{font-size:clamp(44px,7vw,84px);color:var(--a3)}
+@media(max-width:820px){.hgrid{grid-template-columns:1fr}.collage{height:360px}.collage .polaroid{width:170px}}
 </style></head><body>
-<nav><span>INÊS DUARTE</span><div><a href="#work">WORK</a><a href="#about">ABOUT</a><a href="#about">BOOK</a></div></nav>
-<header class="hero"><div class="three" id="three"></div><div class="txt"><h1>Inês Duarte</h1><p>Portrait · Travel · Wedding photography — Lisbon</p></div></header>
-<div class="filters" id="work"><button class="on" data-f="all">All</button><button data-f="portrait">Portraits</button><button data-f="travel">Travel</button><button data-f="wedding">Weddings</button></div>
-<div class="grid" id="g"></div>
-<section class="about" id="about"><h2>Quiet, honest images</h2><p>Natural light, real moments and a calm pace. Based in Lisbon and available across Portugal and Europe for portraits, travel stories and weddings.</p><a class="cta" href="mailto:hello@inesduarte.example">Book a session</a></section>
+<nav class="top"><div class="wrap"><a class="logo" href="#">Inês Duarte</a><div class="links"><a href="#work">Work</a><a href="#why">About</a><a href="#book">Book</a></div></div></nav>
+<header class="hero"><div class="wrap hgrid">
+  <div><div class="eyebrow" style="color:var(--a2)">Creative portfolio · Lisbon</div>
+  <h1 class="display" style="margin-top:12px">Inês Duarte</h1><span class="hand">portraits, travel &amp; weddings</span>
+  <p>Quiet, honest photographs in natural light. Based in Lisbon and available across Portugal and Europe.</p>
+  <a class="btn" href="#work" style="background:var(--a3);color:var(--ink)">See the work</a></div>
+  <div class="collage">
+    <div class="polaroid tilt" style="--rot:-8deg;left:2%;top:30px" data-depth="18"><img src="https://picsum.photos/seed/ines13/400/400" alt="Portrait"><span class="cap">Lisbon, 2026</span></div>
+    <div class="polaroid tilt" style="--rot:6deg;left:38%;top:0" data-depth="-14"><img src="https://picsum.photos/seed/ines21/400/400" alt="Travel"><span class="cap">Sintra</span></div>
+    <div class="polaroid tilt" style="--rot:-2deg;left:22%;top:190px" data-depth="24"><img src="https://picsum.photos/seed/ines31/400/400" alt="Wedding"><span class="cap">A &amp; J ♡</span></div>
+    <div class="sticker" data-sticker="star" data-color="var(--a3)" style="--s:70px;right:4%;top:10px"></div>
+    <div class="sticker nospin" data-sticker="heart" data-color="var(--a1)" style="--s:54px;right:12%;bottom:40px;--d:-2s"></div>
+  </div>
+</div></header>
+<div class="marquee" style="background:var(--a3);color:var(--ink)" data-marquee="Portraits|Travel|Weddings|Editorial|Natural light|Lisbon"></div>
+<section id="work"><div class="wrap">
+  <div style="text-align:center"><div class="eyebrow">Selected work</div><h2 class="display" style="font-size:clamp(42px,6vw,72px)">The gallery</h2></div>
+  <div class="filters"><button class="btn sm on" data-f="all">All</button><button class="btn sm alt" data-f="portrait">Portraits</button><button class="btn sm alt" data-f="travel">Travel</button><button class="btn sm alt" data-f="wedding">Weddings</button></div>
+  <div class="gal" id="g"></div>
+</div>
+<div class="sticker" data-sticker="burst" data-color="var(--a3)" style="--s:100px;top:40px;left:3%" data-depth="20"></div></section>
+<section id="why" class="dots" style="border-block:3px solid var(--ink)"><div class="wrap">
+  <div class="eyebrow">Why work with Inês?</div><h2 class="display" style="font-size:clamp(40px,6vw,66px)">Calm sessions, real moments</h2>
+  <div class="grid g3 why" style="margin-top:30px">
+    <div class="card tilt reveal"><span class="hand" style="font-size:30px;color:var(--a1)">01</span><h3>Natural light</h3><p>Soft, flattering images without heavy editing.</p></div>
+    <div class="card tilt reveal" style="background:var(--a3)"><span class="hand" style="font-size:30px;color:var(--a1)">02</span><h3>Relaxed pace</h3><p>Gentle direction so you never feel posed.</p></div>
+    <div class="card tilt reveal"><span class="hand" style="font-size:30px;color:var(--a1)">03</span><h3>Fast delivery</h3><p>An online gallery within two weeks.</p></div>
+  </div>
+</div></section>
+<section id="book" class="book"><div class="wrap">
+  <div class="eyebrow">Bookings open</div><h2 class="display">Let's make photos.</h2>
+  <p style="margin:16px 0 28px">Portraits from €180 · Weddings from €1,400 (sample prices)</p>
+  <a class="btn" href="mailto:hello@inesduarte.example" style="background:var(--a3);color:var(--ink)">Book a session</a>
+</div><div class="badge" data-badge="book now · lisbon · photography · " style="top:30px;right:6%"></div></section>
 <div class="lb" id="lb"><button id="x" aria-label="Close">×</button><img id="big" alt=""></div>
-<footer>Concept website for a photographer · sample images from picsum.photos</footer>
+<footer class="foot">Concept website for a photographer · sample images from picsum.photos</footer>
 <script>
-var items=[["portrait",11],["travel",21],["wedding",31],["travel",22],["portrait",12],["wedding",32],["travel",23],["portrait",13],["wedding",33],["travel",24],["portrait",14],["wedding",34]];
+var items=[["portrait",11,"Ana"],["travel",21,"Porto"],["wedding",31,"Sofia & Rui"],["travel",22,"Azores"],["portrait",12,"Marta"],["wedding",32,"First dance"],["travel",23,"Alfama"],["portrait",13,"Studio"],["wedding",33,"Vows"],["travel",24,"Douro"],["portrait",14,"Golden hour"],["wedding",34,"Sintra"]];
 var g=document.getElementById("g");
 items.forEach(function(it){
-  var f=document.createElement("figure");f.dataset.c=it[0];
-  var i=document.createElement("img");i.loading="lazy";i.alt=it[0]+" photograph";i.src="https://picsum.photos/seed/ines"+it[1]+"/600/750";
-  var c=document.createElement("figcaption");c.textContent=it[0];
-  f.appendChild(i);f.appendChild(c);
-  f.onclick=function(){document.getElementById("big").src="https://picsum.photos/seed/ines"+it[1]+"/1400/1750";document.getElementById("lb").classList.add("open")};
-  f.addEventListener("mousemove",function(e){var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform="rotateY("+(x*14)+"deg) rotateX("+(-y*14)+"deg) scale(1.03)";f.style.boxShadow=(-x*30)+"px "+(20-y*20)+"px 40px rgba(0,0,0,.6)"});
-  f.addEventListener("mouseleave",function(){f.style.transform="";f.style.boxShadow=""});
-  g.appendChild(f)});
+  var a=document.createElement("div");a.className="polaroid reveal";a.dataset.c=it[0];
+  var i=document.createElement("img");i.loading="lazy";i.alt=it[0]+" photograph";i.src="https://picsum.photos/seed/ines"+it[1]+"/500/500";
+  var c=document.createElement("span");c.className="cap";c.textContent=it[2];
+  a.appendChild(i);a.appendChild(c);
+  a.onclick=function(){document.getElementById("big").src="https://picsum.photos/seed/ines"+it[1]+"/1400/1400";document.getElementById("lb").classList.add("open")};
+  g.appendChild(a)});
 document.querySelectorAll(".filters button").forEach(function(b){b.onclick=function(){
-  document.querySelectorAll(".filters button").forEach(function(o){o.classList.remove("on")});b.classList.add("on");
-  var f=b.dataset.f;document.querySelectorAll("#g figure").forEach(function(fig){fig.classList.toggle("hide",f!=="all"&&fig.dataset.c!==f)})}});
+  document.querySelectorAll(".filters button").forEach(function(o){o.classList.remove("on");o.classList.add("alt")});b.classList.add("on");b.classList.remove("alt");
+  var f=b.dataset.f;document.querySelectorAll("#g .polaroid").forEach(function(p){p.classList.toggle("hide",f!=="all"&&p.dataset.c!==f)})}});
 document.getElementById("x").onclick=function(){document.getElementById("lb").classList.remove("open")};
 document.getElementById("lb").onclick=function(e){if(e.target.id==="lb")this.classList.remove("open")};
 document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("lb").classList.remove("open")});
 </script>
-<script type="module">
-import {scene} from "../scene.js";
-scene("photo",document.getElementById("three"));
-</script>
+<script src="../retro.js"></script>
 </body></html>
