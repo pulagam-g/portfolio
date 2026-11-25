@@ -1,130 +1,107 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Geethanjali Pulagam – AI & Workflow Automation</title>
-<meta name="description" content="Geethanjali Pulagam – AI and workflow automation specialist (n8n, Microsoft Power Automate, Python) and freelance portfolio website designer for clients and brands. Based in Lisbon, Portugal.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>Geethanjali Pulagam – AI Workflow Automation & Portfolio Websites</title>
+<meta name="description" content="Geethanjali Pulagam – AI and workflow automation specialist (n8n, Microsoft Power Automate, Python) and freelance portfolio website designer for clients and brands. Lisbon, Portugal.">
+<link rel="stylesheet" href="projects/retro.css">
 <style>
-:root{--bg:#F6F3EC;--ink:#17201B;--soft:#5B6660;--line:#DDD6C8;--accent:#1F6F5C;--accent2:#E2683C;--card:#FFFDF8}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:0;background:rgba(246,243,236,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-nav b{font-family:Fraunces,serif;font-size:20px}
-nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
-nav a{text-decoration:none;color:var(--soft)}nav a:hover{color:var(--accent)}
-.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
-header{padding:96px 0 72px}
-h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(44px,7vw,84px);line-height:1.02;letter-spacing:-.02em;margin:18px 0 22px}
-h1 em{font-style:normal;color:var(--accent)}
-.lead{font-size:20px;color:var(--soft);max-width:640px}
-.btns{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
-.btn{padding:12px 20px;border-radius:999px;border:1px solid var(--ink);text-decoration:none;font-weight:500;font-size:15px}
-.btn.p{background:var(--ink);color:var(--bg)}
-.flow{display:flex;align-items:center;gap:0;margin-top:64px;flex-wrap:wrap}
-.node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;min-width:150px}
-.node small{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--soft);text-transform:uppercase}
-.node span{font-weight:600}
-.arrow{flex:0 0 36px;height:2px;background:var(--accent);position:relative}
-.arrow:after{content:"";position:absolute;right:-1px;top:-4px;border-left:8px solid var(--accent);border-top:5px solid transparent;border-bottom:5px solid transparent}
-section{padding:72px 0;border-top:1px solid var(--line)}
-h2{font-family:Fraunces,serif;font-size:36px;margin:8px 0 28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
-.card h3{font-size:19px;margin-bottom:4px}
-.meta{font-size:14px;color:var(--soft);margin-bottom:14px}
-ul.l{padding-left:18px}ul.l li{margin:6px 0}
-.big{font-family:Fraunces,serif;font-size:56px;color:var(--accent2);line-height:1}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chips span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px}
-.chips.hot span{border-color:var(--accent);color:var(--accent)}
-.row{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
-.row:last-child{border-bottom:0}
-.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:48px}
-.contact h2{color:var(--bg)}
-.contact a{display:inline-block;margin:6px 18px 6px 0;color:#9ED9C7}
-footer{padding:32px 0;font-size:13px;color:var(--soft)}
-@media(max-width:700px){nav ul{display:none}.row{grid-template-columns:1fr;gap:6px}.arrow{flex-basis:20px}.contact{padding:30px}}
-</style></head>
-<body>
-<nav><div class="wrap"><b>G. Pulagam</b><ul><li><a href="#work">Work</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+.hero{padding:70px 0 90px}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(54px,8.5vw,112px)}
+.hero h1 span{color:var(--a1);display:block}
+.hero p{font-size:20px;max-width:540px;margin:22px 0 30px}
+.me{width:min(400px,80vw);aspect-ratio:1;margin:0 auto;display:grid;place-items:center;background:linear-gradient(140deg,var(--a2),var(--a3))}
+.me b{font-family:Shrikhand,serif;font-size:130px;color:var(--ink);text-shadow:6px 6px 0 var(--paper)}
+.flow .card{text-align:center}
+.flow .card .num{font-family:Shrikhand,serif;font-size:44px;color:var(--a1)}
+.job{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:22px}
+.job .when{font-family:Caveat,cursive;font-size:28px;font-weight:600}
+.job h3{font-family:Fraunces,serif;font-weight:900;font-size:24px}
+.job ul{padding-left:20px;margin-top:8px}
+.feat{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:var(--a3)}
+.feat .big{font-family:Shrikhand,serif;font-size:84px;color:var(--a1);line-height:1}
+.pols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 30px;margin-top:50px}
+.pols .polaroid:nth-child(2n){--rot:3deg}.pols .polaroid:nth-child(3n){--rot:-1.5deg}
+.pols .desc{font-size:14px;margin-top:14px;text-align:center}
+h2.display{font-size:clamp(42px,6vw,72px);margin-bottom:14px}
+.contact{color:var(--ink)}
+.contact .card{max-width:640px;margin:0 auto;text-align:center}
+.contact a.link{display:inline-block;margin:6px 10px;font-weight:700}
+@media(max-width:820px){.hgrid,.job,.feat{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="top"><div class="wrap"><a class="logo" href="#">Geethanjali.</a><div class="links"><a href="#work">Work</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
 
-<header><div class="wrap">
-  <div class="mono">AI &amp; workflow automation · Lisbon, Portugal</div>
-  <h1>I build AI workflows that turn <em>documents into decisions.</em></h1>
-  <p class="lead">Automation specialist working with n8n, Microsoft Power Automate and Python. My AI agents collect information, organise it and draft structured reports in roughly half the time of manual work. I also design and build portfolio websites for clients and brands.</p>
-  <div class="btns"><a class="btn p" href="#contact">Get in touch</a><a class="btn" href="#projects">See projects</a></div>
-  <div class="flow">
-    <div class="node"><small>Trigger</small><span>Sources &amp; documents</span></div><div class="arrow"></div>
-    <div class="node"><small>AI agent</small><span>Collect &amp; organise</span></div><div class="arrow"></div>
-    <div class="node"><small>Process</small><span>Summarise &amp; verify</span></div><div class="arrow"></div>
-    <div class="node"><small>Output</small><span>Traceable report</span></div>
+<header class="hero"><div class="wrap hgrid">
+  <div>
+    <div class="eyebrow">AI &amp; workflow automation · Lisbon, Portugal</div>
+    <h1 class="display" style="margin-top:14px">Hi, I'm <span>Geethanjali!</span></h1>
+    <p>I build AI agents and workflows with n8n, Microsoft Power Automate and Python that turn documents into clear reports in roughly half the time. I also design and build portfolio websites for clients and brands.</p>
+    <a class="btn" href="#projects">See my projects</a> &nbsp; <a class="btn alt" href="#contact">Say hello</a>
+  </div>
+  <div style="position:relative">
+    <div class="blob me tilt" data-tilt="14"><b>GP</b></div>
+    <div class="sticker" data-sticker="star" style="--s:80px;top:-20px;left:4%" data-depth="30"></div>
+    <div class="sticker" data-sticker="flower" data-color="var(--a2)" style="--s:90px;bottom:-10px;left:-10px;--d:-2s" data-depth="-25"></div>
+    <div class="badge" data-badge="open to work · AI automation · web design · " style="top:-30px;right:-10px"></div>
+    <div class="sticker nospin" data-sticker="heart" data-color="var(--a1)" style="--s:56px;bottom:20px;right:6%;--d:-1s" data-depth="40"></div>
   </div>
 </div></header>
 
-<section id="work"><div class="wrap">
-  <div class="mono">Experience</div><h2>Where I've worked</h2>
-  <div class="row"><div><b>Jan 2026 – Present</b><div class="meta">Remote</div></div><div>
-    <h3>Freelance Web &amp; Portfolio Designer</h3><div class="meta">Independent</div>
-    <ul class="l"><li>Design and build custom portfolio websites for clients and brands, from first brief to launch.</li><li>Turn each client's goals and brand identity into clean, responsive layouts with HTML, CSS and JavaScript.</li><li>Publish and host sites on GitHub Pages, and handle updates and content changes after launch.</li><li>Use AI tools and automation to speed up content drafting, page building and testing.</li></ul></div></div>
-  <div class="row"><div><b>Jan 2024 – Apr 2024</b><div class="meta">Andhra Pradesh, India</div></div><div>
-    <h3>Web Development Intern</h3><div class="meta">Academic Xcell Solutions</div>
-    <ul class="l"><li>Built responsive webpages with HTML, CSS and JavaScript.</li><li>Tested layouts and interactivity across screen sizes before delivery, using manual and regression testing.</li></ul></div></div>
-  <div class="row"><div><b>Feb 2026 – Apr 2026</b><div class="meta">Chennai, India</div></div><div>
-    <h3>Sales Associate Intern</h3><div class="meta">Trent Limited (Westside)</div>
-    <ul class="l"><li>Advised customers on product selection in a high-traffic retail store and handled billing.</li><li>Supported daily sales operations and customer engagement.</li></ul></div></div>
+<div class="marquee" data-marquee="n8n|Power Automate|Python|AI agents|Prompt engineering|Portfolio websites|Generative AI"></div>
+
+<section class="flow"><div class="wrap">
+  <div class="eyebrow">How I work</div><h2 class="display">Documents in, decisions out.</h2>
+  <div class="grid g3" style="margin-top:34px">
+    <div class="card tilt reveal"><div class="num">01</div><b>Trigger</b><p>Sources, documents and web pages come in.</p></div>
+    <div class="card tilt reveal" style="background:var(--a2)"><div class="num">02</div><b>AI agent</b><p>Collects and organises the information.</p></div>
+    <div class="card tilt reveal" style="background:var(--a3)"><div class="num">03</div><b>Process</b><p>Summarises and checks every source.</p></div>
+    <div class="card tilt reveal"><div class="num">04</div><b>Output</b><p>A clear, traceable report, ready to use.</p></div>
+  </div>
+</div></section>
+
+<section id="work" class="dots" style="border-block:3px solid var(--ink)"><div class="wrap">
+  <div class="eyebrow">Experience</div><h2 class="display">Where I've worked</h2>
+  <div style="margin-top:34px">
+    <div class="job card reveal"><div class="when">Jan 2026 – Present<br><small class="eyebrow">Remote</small></div><div><h3>Freelance Web &amp; Portfolio Designer</h3><ul><li>Design and build custom portfolio websites for clients and brands, from first brief to launch.</li><li>Turn each client's goals and brand identity into clean, responsive layouts with HTML, CSS and JavaScript.</li><li>Publish and host sites on GitHub Pages, and handle updates after launch.</li><li>Use AI tools and automation to speed up content drafting, page building and testing.</li></ul></div></div>
+    <div class="job card reveal"><div class="when">Jan – Apr 2024<br><small class="eyebrow">Andhra Pradesh, India</small></div><div><h3>Web Development Intern · Academic Xcell Solutions</h3><ul><li>Built responsive webpages with HTML, CSS and JavaScript.</li><li>Tested layouts and interactivity across screen sizes, using manual and regression testing.</li></ul></div></div>
+    <div class="job card reveal"><div class="when">Feb – Apr 2026<br><small class="eyebrow">Chennai, India</small></div><div><h3>Sales Associate Intern · Trent Limited (Westside)</h3><ul><li>Advised customers on product selection in a high-traffic retail store and handled billing.</li><li>Supported daily sales operations and customer engagement.</li></ul></div></div>
+  </div>
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <div class="mono">Projects</div><h2>What I've built</h2>
-  <div class="grid">
-    <div class="card"><div class="big">~50%</div><p class="meta" style="margin-top:6px">less time than manual research</p>
-      <h3>AI research &amp; reporting workflows</h3>
-      <ul class="l"><li>AI agents that collect information from web sources, organise it and draft structured reports.</li><li>Consistent, traceable outputs: every statement links back to its source.</li></ul>
-      <div class="chips hot"><span>n8n</span><span>Power Automate</span><span>Python</span></div></div>
-    <div class="card"><div class="big">Web</div><p class="meta" style="margin-top:6px">portfolio sites, built from scratch</p>
-      <h3>Portfolio websites</h3>
-      <ul class="l"><li>Designed, built and published an animated 3D portfolio: <a href="https://pulagam-g.github.io">pulagam-g.github.io</a>.</li><li>Designed and built this AI &amp; automation portfolio from scratch, hosted on GitHub Pages.</li></ul>
-      <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div></div>
+  <div class="eyebrow">Projects</div><h2 class="display">What I've built</h2>
+  <div class="card feat tilt reveal" data-tilt="6" style="margin-top:30px"><div class="big">~50%</div><div><h3 class="serif" style="font-size:28px">AI research &amp; reporting workflows</h3><p>AI agents that collect information from web sources, organise it and draft structured, traceable reports in roughly half the time of manual research. Built with n8n, Power Automate and Python.</p></div></div>
+  <h3 class="display" style="font-size:40px;margin-top:70px">Concept projects</h3><p>Self-initiated builds that show the sites and automations I make for clients and brands. Click a photo to open the live site.</p>
+  <div class="pols">
+    <a class="polaroid reveal" href="projects/photographer/" target="_blank" rel="noopener" style="--rot:-4deg"><img src="https://picsum.photos/seed/ines12/500/500" alt="Photographer portfolio preview"><span class="cap">Photographer ↗</span></a>
+    <a class="polaroid reveal" href="projects/cafe/" target="_blank" rel="noopener"><img src="https://picsum.photos/seed/graocafe/500/500" alt="Café website preview"><span class="cap">Café brand ↗</span></a>
+    <a class="polaroid reveal" href="projects/consultant/" target="_blank" rel="noopener"><img src="https://picsum.photos/seed/consult7/500/500" alt="Consultant website preview"><span class="cap">Consultant ↗</span></a>
+    <a class="polaroid reveal" href="projects/lead-capture/" target="_blank" rel="noopener" style="--rot:2deg"><div class="ph checker"></div><span class="cap">Lead capture ↗</span></a>
+    <a class="polaroid reveal" href="projects/ai-copywriter/" target="_blank" rel="noopener" style="--rot:-2deg"><div class="ph dots" style="background-color:var(--a3)"></div><span class="cap">AI copywriter ↗</span></a>
   </div>
-  <h3 style="margin:44px 0 6px;font-family:Fraunces,serif;font-size:26px">Concept projects</h3><p class="meta">Self-initiated builds that show the kind of sites and automations I make for clients and brands.</p>
-  <div class="grid">
-    <div class="card"><div class="mono">Website</div><h3 style="margin-top:8px">Photographer portfolio</h3><a href="projects/photographer/" target="_blank" rel="noopener" style="display:inline-block;margin:2px 0 8px;color:var(--accent2);font-weight:600;text-decoration:none">View live →</a><p class="meta">Image-led gallery with category filters, a full-screen lightbox and fast, mobile-first layouts.</p><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
-    <div class="card"><div class="mono">Website</div><h3 style="margin-top:8px">Café brand website</h3><a href="projects/cafe/" target="_blank" rel="noopener" style="display:inline-block;margin:2px 0 8px;color:var(--accent2);font-weight:600;text-decoration:none">View live →</a><p class="meta">One-page brand site with menu, opening hours, location map and contact form in a warm brand palette.</p><div class="chips"><span>HTML</span><span>CSS</span><span>Responsive</span></div></div>
-    <div class="card"><div class="mono">Website</div><h3 style="margin-top:8px">Consultant personal-brand site</h3><a href="projects/consultant/" target="_blank" rel="noopener" style="display:inline-block;margin:2px 0 8px;color:var(--accent2);font-weight:600;text-decoration:none">View live →</a><p class="meta">Services, case-study and booking sections with clear calls to action, built to turn visitors into enquiries.</p><div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
-    <div class="card"><div class="mono">Automation</div><h3 style="margin-top:8px">Lead-capture automation</h3><a href="projects/lead-capture/" target="_blank" rel="noopener" style="display:inline-block;margin:2px 0 8px;color:var(--accent2);font-weight:600;text-decoration:none">View live →</a><p class="meta">n8n workflow that sends website form entries to Google Sheets and emails an instant notification and auto-reply.</p><div class="chips hot"><span>n8n</span><span>Google Sheets</span><span>Email</span></div></div>
-    <div class="card"><div class="mono">AI workflow</div><h3 style="margin-top:8px">AI portfolio copywriter</h3><a href="projects/ai-copywriter/" target="_blank" rel="noopener" style="display:inline-block;margin:2px 0 8px;color:var(--accent2);font-weight:600;text-decoration:none">View live →</a><p class="meta">n8n and LLM workflow that turns a short client brief into a draft bio, About section and project descriptions.</p><div class="chips hot"><span>n8n</span><span>LLM</span><span>Prompt engineering</span></div></div>
-  </div>
+</div>
+<div class="sticker" data-sticker="burst" data-color="var(--a3)" style="--s:110px;top:60px;right:4%" data-depth="20"></div>
+</section>
+
+<div class="marquee alt" data-marquee="Photographer portfolio|Café brand|Consultant site|Lead capture|AI copywriter"></div>
+
+<section id="skills"><div class="wrap grid g2">
+  <div class="reveal"><div class="eyebrow">Skills</div><h2 class="display">Toolkit</h2>
+    <div style="margin-top:20px"><span class="chip">AI agents</span><span class="chip">Prompt engineering</span><span class="chip">Generative AI</span><span class="chip">LLMs</span><span class="chip">n8n</span><span class="chip">Microsoft Power Automate</span><span class="chip">Workflow automation</span><span class="chip">Python</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Test case design</span><span class="chip">Regression testing</span><span class="chip">UAT</span><span class="chip">Document research</span><span class="chip">Structured reporting</span><span class="chip">Sales</span><span class="chip">CRM</span><span class="chip">Digital marketing &amp; SEO</span></div></div>
+  <div class="reveal"><div class="eyebrow">Education &amp; languages</div><h2 class="display">Background</h2>
+    <div class="card tilt" style="margin-top:20px"><b>MBA, Marketing &amp; Technopreneurship</b><p>Vel Tech University, Chennai · 2024 – 2026 · CGPA 8.5 / 10</p></div>
+    <div class="card tilt" style="margin-top:18px;background:var(--a2)"><b>B.Sc., Computer Applications</b><p>Adikavi Nannaya University · 2021 – 2024 · CGPA 7.89 / 10</p></div>
+    <div class="card tilt" style="margin-top:18px;background:var(--a3)"><b>Languages</b><p>English – C1 (proficient) · Telugu – native</p></div></div>
 </div></section>
 
-<section id="skills"><div class="wrap">
-  <div class="mono">Skills</div><h2>Toolkit</h2>
-  <div class="row"><b>AI &amp; automation</b><div class="chips hot"><span>AI agents</span><span>Prompt engineering</span><span>Generative AI</span><span>LLMs</span><span>n8n</span><span>Microsoft Power Automate</span><span>Workflow automation</span></div></div>
-  <div class="row"><b>Programming</b><div class="chips"><span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span><span>VS Code</span></div></div>
-  <div class="row"><b>Quality</b><div class="chips"><span>Test case design</span><span>Manual &amp; regression testing</span><span>UAT</span></div></div>
-  <div class="row"><b>Business</b><div class="chips"><span>Document research</span><span>Structured reporting</span><span>Sales</span><span>CRM</span><span>Digital marketing &amp; SEO</span></div></div>
-</div></section>
-
-<section id="education"><div class="wrap">
-  <div class="mono">Education &amp; languages</div><h2>Background</h2>
-  <div class="grid">
-    <div class="card"><h3>MBA, Marketing &amp; Technopreneurship</h3><div class="meta">Vel Tech University, Chennai · 2024 – 2026 · CGPA 8.5 / 10</div></div>
-    <div class="card"><h3>B.Sc., Computer Applications</h3><div class="meta">Adikavi Nannaya University, Rajamahendravaram · 2021 – 2024 · CGPA 7.89 / 10</div></div>
-    <div class="card"><h3>Languages</h3><div class="meta">English – C1 (proficient) · Telugu – native</div></div>
-  </div>
-</div></section>
-
-<section id="contact" style="border-top:0"><div class="wrap"><div class="contact">
-  <div class="mono" style="color:#9ED9C7">Contact</div><h2>Let's automate something.</h2>
-  <p style="margin-bottom:14px;opacity:.85">Open to AI and workflow automation roles, remote or in Lisbon, and to portfolio website projects for clients and brands.</p>
-  <a href="mailto:pulagamgeethanjali@gmail.com">pulagamgeethanjali@gmail.com</a>
-  <a href="tel:+919030393377">+91 90303 93377</a>
-  <a href="https://www.linkedin.com/in/geethanjali-pulagam" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="https://github.com/pulagam-g" target="_blank" rel="noopener">GitHub</a>
-</div></div></section>
-
-<footer><div class="wrap">Geethanjali Pulagam · Lisbon, Portugal · 2026</div></footer>
+<section id="contact" class="checker contact" style="border-top:3px solid var(--ink)"><div class="wrap">
+  <div class="card reveal"><div class="eyebrow">Contact</div><h2 class="display">Let's make something!</h2>
+  <p>Open to AI and workflow automation roles, remote or in Lisbon, and to portfolio website projects for clients and brands.</p>
+  <p style="margin-top:16px"><a class="link" href="mailto:pulagamgeethanjali@gmail.com">pulagamgeethanjali@gmail.com</a><a class="link" href="tel:+919030393377">+91 90303 93377</a></p>
+  <p style="margin-top:14px"><a class="btn" href="https://www.linkedin.com/in/geethanjali-pulagam" target="_blank" rel="noopener">LinkedIn</a> &nbsp; <a class="btn alt" href="https://github.com/pulagam-g" target="_blank" rel="noopener">GitHub</a></p></div>
+</div>
+<div class="sticker" data-sticker="smile" data-color="var(--a3)" style="--s:90px;top:30px;left:6%"></div>
+<div class="sticker" data-sticker="star" data-color="var(--paper)" style="--s:70px;bottom:40px;right:8%;--d:-3s"></div>
+</section>
+<footer class="foot">Geethanjali Pulagam · Lisbon, Portugal · 2026</footer>
+<script src="projects/retro.js"></script>
 </body></html>
